@@ -1,0 +1,22 @@
+body {
+  background: #000;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: all 3s ease;
+}
+
+.letter {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10rem;
+  position: absolute;
+  opacity: 0.5;
+  transition: all 3s ease;
+  text-transform: uppercase;
+}
