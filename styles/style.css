@@ -15,7 +15,7 @@ body {
   font-weight: normal;
   font-size: 10rem;
   position: absolute;
-  opacity: 0.75;
+  opacity: 0.5;
   color: #fff9d8;
   text-transform: initial;
   animation: fadeOut 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0s 1 normal forwards;
@@ -53,9 +53,9 @@ body {
 }
 
 .bg-text {
-  opacity: 0.2;
+  opacity: 0.25;
 }
 
 .bg-text-done {
-  opacity: 0.6;
+  opacity: 0.5;
 }
