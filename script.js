@@ -1,6 +1,6 @@
 import poems from './src/poems.js';
 import Evt from './src/Event.js';
-Evt.init(cursorAnim);
+Evt.init(dragWords);
 
 const $ = (el) => document.querySelector(el);
 const rand = (n) => Math.floor(Math.random() * n);
@@ -11,7 +11,7 @@ let str = '';
 
 $('.bg-text').textContent = poems[poemCounter].text;
 
-function cursorAnim(e) {
+function dragWords(e) {
   if (!Evt.pressing) return;
   const circle = document.createElement('div');
   circle.setAttribute('class', 'letter');
