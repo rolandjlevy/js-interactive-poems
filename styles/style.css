@@ -19,6 +19,7 @@ body {
   color: #fff9d8;
   text-transform: initial;
   animation: fadeOut 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0s 1 normal forwards;
+  /* filter: hue-rotate(90deg); */
 }
 
 /*************/
@@ -26,16 +27,19 @@ body {
 /*************/
 
 @keyframes fadeOut {
-  60% {
+  40% {
     color: #ffc850;
   }
+  60% {
+    color: #ff8800;
+  }
   80% {
-    color: #ff6600;
+    color: #ff0000;
   }
   100% {
     opacity: 0;
     transform: scale(0.1);
-    color: #be0000;
+    color: #9c0000;
   }
 }
 
