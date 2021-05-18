@@ -10,7 +10,7 @@ function cursorAnim(event) {
   circle.style.left = (event.clientX - 55) + 'px';
   circle.style.top = (event.clientY - 55) + 'px';
 
-  circle.style.borderColor = '#ffffff'; // randomRgb();
+  circle.style.borderColor = '#ffffff'; // randomRgb(255);
 
   circle.style.left = circle.offsetLeft - 40 + 'px';
   circle.style.top = circle.offsetTop - 40 + 'px';
@@ -19,8 +19,16 @@ function cursorAnim(event) {
 
 }
 
-const randomNum = (n) => Math.floor(Math.random() * n);
+const rand = (n) => Math.floor(Math.random() * n);
 
-function randomRgb() {
-  return `rgb(${randomNum(256)}, ${randomNum(256)}, ${randomNum(256)})`
-}
+const randomRgb = (n) => `rgb(${rand(n+1)}, ${rand(n+1)}, ${rand(n+1)})`;
+
+// .circle {
+//   width: 100px;
+//   height: 100px;
+//   position: absolute;
+//   border: 10px solid #fff;
+//   border-radius: 50%;
+//   opacity: 0.7;
+//   transition: all 3s ease;
+// }

@@ -1,34 +1,44 @@
-document.onmousemove = cursorAnim;
+const words = '';
 
-const cols = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff'];
+import poems from './src/poems.js';
+import Evt from './src/Event.js';
+Evt.init(cursorAnim);
 
-const word = 'This is a message from my mind';
+const $ = (el) => document.querySelector(el);
+const rand = (n) => Math.floor(Math.random() * n);
+
 let counter = 0;
+let poemCounter = rand(poems.length);
+let str = '';
 
-function cursorAnim(event) {
+$('.bg-text').textContent = poems[poemCounter].text;
 
+function cursorAnim(e) {
+  if (!Evt.pressing) return;
   const circle = document.createElement('div');
   circle.setAttribute('class', 'letter');
-  circle.textContent = word[counter];
-  document.body.appendChild(circle);
-
-  circle.style.left = (event.clientX - 55) + 'px';
-  circle.style.top = (event.clientY - 55) + 'px';
-
-  circle.style.color = '#ffffff'; // randomRgb();
-
-  circle.style.left = circle.offsetLeft - 40 + 'px';
-  circle.style.top = circle.offsetTop - 40 + 'px';
-  circle.style.opacity = '0';
-  circle.style.transform = 'scale(0.1)';
-
+  circle.textContent = poems[poemCounter].text[counter];
+  str += poems[poemCounter].text[counter];
+  $('.bg-text-done').textContent = str;
   counter++;
-  counter %= word.length;
-
+  counter %= poems[poemCounter].text.length;
+  const evt = Evt.touchEnabled() ? e.touches[0] : e;
+  circle.style.left = (evt.clientX - 48) + 'px';
+  circle.style.top = (evt.clientY - 90) + 'px';
+  circle.addEventListener("animationend", (e) => circle.remove());
+  document.body.appendChild(circle);
 }
 
-const randomNum = (n) => Math.floor(Math.random() * n);
-
-function randomRgb() {
-  return `rgb(${randomNum(256)}, ${randomNum(256)}, ${randomNum(256)})`
+function getTextNodeRect(textNode) {
+  let rect = { width:0, height:0 };
+  const range = document.createRange();
+  if (range) {
+    range.selectNodeContents(textNode);
+    const clientRect = range.getBoundingClientRect();
+    if (clientRect) {
+      rect.width = clientRect.right - clientRect.left;
+      rect.height = clientRect.bottom - clientRect.top;
+    }
+  }
+  return rect;
 }
