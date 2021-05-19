@@ -8,6 +8,6 @@
 - [Github repo](https://github.com/rolandjlevy/js-interactive-poems)
 
 ### Features 💡
-- Uses the [poetrydb.org](https://poetrydb.org) API to fetch peoms randomly
+- Uses the [poetrydb.org](https://poetrydb.org) API to fetch poems randomly
 - Fully responsive and works on all touch devices
 - Built from scratch with vanilla JavaScript and CSS, without no frameworks or libraries
