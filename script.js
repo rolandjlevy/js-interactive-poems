@@ -1,22 +1,29 @@
 import poems from './src/poems.js';
+import RandomPoem from './src/RandomPoem.js';
 import Evt from './src/Event.js';
+
 Evt.init(dragWords);
 
 const $ = (el) => document.querySelector(el);
-const rand = (n) => Math.floor(Math.random() * n);
-
 let counter = 0;
-let poemCounter = rand(poems.length);
 let str = '';
+let poemText = '';
 
-$('.bg-text').textContent = poems[poemCounter].text;
+let init = false;
+
+RandomPoem.init().then(data => {
+  const { title, author, lines } = data;
+  poemText = lines.join(' ');
+  $('.heading').innerHTML = `&ldquo;${title}&rdquo; by ${author}.`;
+  $('.bg-text').textContent = poemText;
+});
 
 function dragWords(e) {
-  if (!Evt.pressing) return;
+  if (!Evt.pressing || counter == poemText.length || !poemText.length) return;
   const circle = document.createElement('div');
   circle.setAttribute('class', 'letter');
-  circle.textContent = poems[poemCounter].text[counter];
-  str += poems[poemCounter].text[counter];
+  circle.textContent = poemText[counter];
+  str += poemText[counter];
   $('.bg-text-done').textContent = str;
   const evt = Evt.touchEnabled() ? e.touches[0] : e;
   circle.style.left = (evt.clientX - 48) + 'px';
@@ -24,19 +31,4 @@ function dragWords(e) {
   circle.addEventListener("animationend", (e) => circle.remove());
   document.body.appendChild(circle);
   counter++;
-  counter %= poems[poemCounter].text.length;
-}
-
-function getTextNodeRect(textNode) {
-  let rect = { width:0, height:0 };
-  const range = document.createRange();
-  if (range) {
-    range.selectNodeContents(textNode);
-    const clientRect = range.getBoundingClientRect();
-    if (clientRect) {
-      rect.width = clientRect.right - clientRect.left;
-      rect.height = clientRect.bottom - clientRect.top;
-    }
-  }
-  return rect;
 }

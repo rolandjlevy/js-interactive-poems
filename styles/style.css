@@ -1,3 +1,8 @@
+:root {
+  --primary-text-colour: #fff9d8;
+  --primary-text-size: 4vmax;
+}
+
 body {
   background: #000;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -16,7 +21,7 @@ body {
   font-size: 10rem;
   position: absolute;
   opacity: 0.5;
-  color: #fff9d8;
+  color: var(--primary-text-colour);
   text-transform: initial;
   animation: fadeOut 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0s 1 normal forwards;
   /* filter: hue-rotate(90deg); */
@@ -28,7 +33,7 @@ body {
 
 @keyframes fadeOut {
   40% {
-    color: #ffc850;
+    color: #ffcd60;
   }
   60% {
     color: #ff8800;
@@ -47,19 +52,29 @@ body {
 /* Background text */
 /*******************/
 
-.bg-text, .bg-text-done {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 4vmax;
+.heading {
+  position: relative;
+  opacity: 0.75;
+}
+
+.bg-text-container {
+  position: relative;
+}
+
+.bg-text, .bg-text-done, .heading {
+  font-size: var(--primary-text-size);
+  color: var(--primary-text-colour);
   user-select: none;
-  color: #ffe9cc;
 }
 
 .bg-text {
+  position: absolute;
+  top: 0;
   opacity: 0.25;
 }
 
 .bg-text-done {
+  position: absolute;
+  top: 0;
   opacity: 0.5;
 }
