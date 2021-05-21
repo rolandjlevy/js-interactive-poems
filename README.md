@@ -9,5 +9,5 @@
 
 ### Features 💡
 - Uses the [poetrydb.org](https://poetrydb.org) API to fetch poems randomly
-- Fully responsive and works on all touch devices
-- Built from scratch with vanilla JavaScript and CSS, without no frameworks or libraries
+- Fully responsive and works on touch devices
+- Built with vanilla JavaScript and CSS, without frameworks or libraries like React or Vue

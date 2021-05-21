@@ -1,5 +1,5 @@
 :root {
-  --primary-text-colour: #fff5d8;
+  --primary-text-colour: #fff;
   --primary-text-size: 4vmax;
 }
 
@@ -20,17 +20,36 @@ body {
   font-weight: normal;
   font-size: 10rem;
   position: absolute;
-  opacity: 0.5;
-  color: var(--primary-text-colour);
+  opacity: 0.6;
+  color: hsla(0, 0%, 100%, 0.9);
   text-transform: initial;
-  animation: fadeOut 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0s 1 normal forwards;
+  animation: blueFadeOut 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0s 1 normal forwards;
 }
 
 /*************/
 /* Animation */
 /*************/
 
-@keyframes fadeOut {
+@keyframes blueFadeOut {
+  40% {
+    color: hsla(194, 100%, 80%, 0.9);
+  }
+  55% {
+    color: hsla(73, 100%, 79%, 0.9);
+  }
+  65% {
+    color: hsla(46, 100%, 64%, 0.8);
+  }
+  85% {
+    color: hsla(17, 100%, 50%, 0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+}
+
+@keyframes redFadeOut {
   40% {
     color: #ffcd60;
   }
