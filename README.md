@@ -1,6 +1,6 @@
-# Interactive Poems 
+# Interactive Poems 🖊 
 
-> Click and drag to see the letters of the poems moving with the position of the cursor then fade away
+> Click and drag to see the letters of poems from the [poetrydb.org](https://poetrydb.org) API moving with the position of the cursor then fade away
 
 ### Links 🔗
 - [See the demo](https://js-interactive-poems.rolandjlevy.repl.co/)
