@@ -5,6 +5,8 @@ const $ = (el) => document.querySelector(el);
 let counter = 0;
 let str = '';
 let poemText = '';
+const X_OFFSET = 48;
+const Y_OFFSET = 90;
 
 Evt.init(dragWords);
 
@@ -23,8 +25,8 @@ function dragWords(e) {
   str += poemText[counter];
   $('.bg-text-done').textContent = str;
   const evt = Evt.touchEnabled() ? e.touches[0] : e;
-  circle.style.left = (evt.clientX - 48) + 'px';
-  circle.style.top = (evt.clientY - 90) + 'px';
+  circle.style.left = (evt.clientX - X_OFFSET) + 'px';
+  circle.style.top = (evt.clientY - Y_OFFSET) + 'px';
   circle.addEventListener("animationend", (e) => circle.remove());
   document.body.appendChild(circle);
   counter++;
